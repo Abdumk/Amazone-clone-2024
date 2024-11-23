@@ -1,85 +1,167 @@
-import React from 'react'
+import React from 'react';
 import { FaSearch } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { BsCart4 } from "react-icons/bs";
-import { Link } from 'react-router-dom';
 
+import classes from './Header.module.css';
+import Lowerheader from './Lowerheader';
 function Header() {
   return (
     <>
+
     <section>
-    <section>
-        <div>
+        <div className={classes.header__container}>
+        <div className={classes.logo__container}>
             {/* logo from png.com*/}
-            <Link to="/">
+            <a href="/">
         <img
             src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
-            alt="amazon logo"
-        />
-    </Link>
-    {/* delivery */}
+            alt="amazon logo"/>
+          </a>
+     {/* delivery */}
+    <div className={classes.delivery}>
     <span>
          {/* icon from react-icons*/}
           <FaLocationDot />
     </span>
-        </div>
+        
         <div>
             <p>Delivery to</p>
             <span>Ethiopia</span>
         </div>
-
-
-        <div>
-          {/* search */}
-<select name="" id="">
-    <option value="">All</option>
-</select>
-<input type="text" name="" id="" placeholder="search product" />
-        {/* icon from react-icons*/}
-        <FaSearch />
         </div>
+        </div>
+        
+     
+
+       {/* search */}
+        <div className={classes.search}>
+      <select name="" id="">
+    <option value="">All</option>
+     </select>
+      <input type="text" name="" id="" placeholder="search product" />
+        {/* icon from react-icons*/}
+        <FaSearch size={25} />
+        </div>
+    
 
         
       {/* right side link */}
-        <div>
-        <div>
+        <div  className={classes.order__container}>
+        
+        <a href="/" className={classes.language} >
         <img src="https://www.shutterstock.com/shutterstock/photos/2477519645/display_1500/stock-vector-american-flag-usa-design-united-states-flag-rendered-usa-flag-the-usa-national-flag-2477519645.jpg" alt="united state flag"  />
-        <select>
+        
+        
+        <select name="" id="">
   <option value="EN">EN</option>
-</select>
+       </select>
+       </a>
 
-
-
-        </div>
+        
     {/* three components */}
-< Link to="">
-<div>
+<a href="">
+
     <p>Sign In</p>
     <span>Account & Lists</span>
-</div>
-</Link>
+
+</a>
 
 
       {/* orders */}
-< Link to="">
+<a href="">
     <p>returns</p>
     <span>& Orders</span>
-</Link>
+</a>
 
 
    {/* Carts */}
-< Link to="/Cart">
+< a href="/Cart"  className={classes.cart} >
       {/* icon from react-icons */}
-      <BsCart4 />
+      <BsCart4 size={35}/>
    <span>0</span>
-</Link>
-
-
+</a>
+       
+        </div>
         </div>
     </section>
-    </section>
+    <Lowerheader />
 </>
   )
 }
 
 export default Header
+
+
+// import React from 'react';
+// import { FaSearch } from "react-icons/fa";
+// import { FaLocationDot } from "react-icons/fa6";
+// import { BsCart4 } from "react-icons/bs";
+// import { Link } from 'react-router-dom';
+// import classes from './Header.module.css';
+// import Lowerheader from './Lowerheader';
+
+// function Header() {
+//   return (
+//     <>
+//       <section>
+//         <div className={classes.header__container}>
+//           <div className={classes.logo__container}>
+//             {/* Logo */}
+//             <Link to="/">
+//               <img
+//                 src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
+//                 alt="Amazon logo"
+//               />
+//             </Link>
+//             {/* Delivery */}
+//             <div className={classes.delivery}>
+//               <span aria-label="location icon">
+//                 <FaLocationDot />
+//               </span>
+//               <div>
+//                 <p>Delivery to</p>
+//                 <span>Ethiopia</span>
+//               </div>
+//             </div>
+//           </div>
+//           {/* Search Bar */}
+//           <div className={classes.search}>
+//             <select name="categories" id="categories">
+//               <option value="all">All</option>
+//             </select>
+//             <input type="text" placeholder="Search products" />
+//             <FaSearch />
+//           </div>
+//           {/* Right Side Links */}
+//           <div className={classes.order__container}>
+//             <div className={classes.language}>
+//               <img
+//                 src="https://www.shutterstock.com/shutterstock/photos/2477519645/display_1500/stock-vector-american-flag-usa-design-united-states-flag-rendered-usa-flag-the-usa-national-flag-2477519645.jpg"
+//                 alt="United States flag"
+//               />
+//               <select aria-label="Language selection">
+//                 <option value="EN">EN</option>
+//               </select>
+//             </div>
+//             <Link to="/signin">
+//               <p>Sign In</p>
+//               <span>Account & Lists</span>
+//             </Link>
+//             <Link to="/orders">
+//               <p>Returns</p>
+//               <span>& Orders</span>
+//             </Link>
+//             <Link to="/cart" className={classes.cart}>
+//               <BsCart4 />
+//               <span>0</span>
+//             </Link>
+//           </div>
+//         </div>
+//       </section>
+//       <Lowerheader />
+//     </>
+//   );
+// }
+
+// export default Header;
