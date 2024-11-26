@@ -1,5 +1,3 @@
-// 
-
 import React from 'react';
 import { TiThMenuOutline } from "react-icons/ti";
 import classes from './Header.module.css';
