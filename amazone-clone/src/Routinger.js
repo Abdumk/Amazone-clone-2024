@@ -6,6 +6,7 @@ import Payment from "./components/pages/Payment/Payment";
 import Orders from "./components/pages/Orders/Orders";
 import Cart from "./components/pages/Cart/Cart";
 import SignIn from './components/pages/Auth/SignIn';
+import Results from './components/pages/Results/Results';
 function Routinger() {
   return (
     <Router>
@@ -14,6 +15,8 @@ function Routinger() {
       <Route path="/auth" element={<SignIn />} />
       <Route path="/payments" element={<Payment />} />
       <Route path="/orders" element={<Orders />} />
+      <Route path="/category/:categoryName" element={<Results />} />
+
       <Route path="/cart" element={<Cart />} />
     </Routes>
   </Router>

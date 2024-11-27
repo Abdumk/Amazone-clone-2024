@@ -1,15 +1,45 @@
-import React from 'react'
-import Lay0ut from '../../LayOut/Lay0ut'
+import React, { useEffect, useState } from 'react'
+import LayOut from '../../LayOut/Lay0ut'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
+import classes from './Results.module.css'
+import {ProductUrl} from '../../../Api/Endpoint'
+import ProductCard from '../../Product/ProductCard'
 
-import clases from './Results.module.css'
 function Results() {
+  const [results,setresults] = useState([])
+  const {categoryName} = useParams()
+  console.log(categoryName);
+  useEffect(() =>{
+    axios.get(`${ProductUrl}/products/category/${categoryName}`)
+    .then((res) =>{
+      // console.log(res);
+      setresults(res.data)
+      console.log(res.data);
+
+    } ).catch((err) =>{
+      console.log(err);
+      
+    })
+  }, [categoryName])
+
   return (
 
-   < Lay0ut>
-    <div>Results</div>
-   
-   
-    </Lay0ut>
+    <LayOut>
+    <section>
+      <h1 style={{ padding: "30px" }}>Results</h1>
+      <p style={{ padding: "30px" }}>Category / {categoryName}</p>
+      <hr />
+      <div className={classes.products_container}>
+        {results?.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product.name}
+          />
+        ))}
+      </div>
+    </section>
+  </LayOut>
   )
 }
 
