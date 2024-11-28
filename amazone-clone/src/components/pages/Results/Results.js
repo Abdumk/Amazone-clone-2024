@@ -46,7 +46,7 @@ function Results() {
       <div className={classes.products_container}>
   {results
     .filter((product) => product && product.image) // Filter products with valid image
-    .map((product) => (
+    ?.map((product) => (
       <ProductCard key={product.id} product={product} />
     ))}
 </div>
