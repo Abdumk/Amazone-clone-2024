@@ -5,9 +5,13 @@ import axios from 'axios'
 import classes from './Results.module.css'
 import {ProductUrl} from '../../../Api/Endpoint'
 import ProductCard from '../../Product/ProductCard'
+import Loder from './../../Loder/Loder';
+
 
 function Results() {
   const [results,setresults] = useState([])
+const [isLoading, setisLoading] = useState(false);
+
   const {categoryName} = useParams()
   console.log("Category Name from Params:", categoryName);
   console.log(categoryName);
@@ -20,9 +24,13 @@ function Results() {
       // console.log(res);
       setresults(res.data)
       console.log(res.data);
+      setisLoading(false)
+
 
     } ).catch((err) =>{
       console.log(err);
+      setisLoading(false)
+
       
     })
   }, [categoryName])
@@ -30,7 +38,7 @@ function Results() {
   return (
 
     <LayOut>
-    <section>
+{isLoading? (<Loder />):(  <section>
       <h1 style={{ padding: "30px" }}>Results</h1>
       <p style={{ padding: "30px" }}>Category / {categoryName}</p>
       <hr />
@@ -47,10 +55,16 @@ function Results() {
   {results
     .filter((product) => product && product.image) // Filter products with valid image
     ?.map((product) => (
-      <ProductCard key={product.id} product={product} />
+      <ProductCard 
+      key={product.id}
+      renderAdd={true}
+       product={product}
+       />
     ))}
 </div>
-    </section>
+    </section> )}
+
+   
   </LayOut>
   )
 }

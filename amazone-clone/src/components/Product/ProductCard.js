@@ -22,9 +22,9 @@ function ProductCard({product}) {
       <h1>{product?.name || "Unnamed Product"}</h1>
       <p>Rating: {rate || "N/A"}</p>
     </div>
-<div className={ classes?.rating}>
+<div className={ classes.rating}>
 {/* rating npm install @mui/material @emotion/react @emotion/styled and npm install numeral*/}
- < Rating value ={rating.rate} precision ={0.1}/> {/* give rate by 0.1 */}
+ < Rating value ={rating?.rate} precision ={0.1}/> {/* give rate by 0.1 */}
 {/* Count */}
 <small>{rating?.count}</small>
 
