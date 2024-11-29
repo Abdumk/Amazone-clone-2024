@@ -37,6 +37,8 @@ const [isLoading, setisLoading] = useState(false);
     
     {isLoading? (<Loder />):( <ProductCard  
   product={product}
+  flex ={true}
+  renderDesc={true}
   />  )}
    
     </Lay0ut>
