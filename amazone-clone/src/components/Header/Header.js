@@ -1,13 +1,24 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { FaSearch } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { BsCart4 } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import classes from './Header.module.css';
 import Lowerheader from './Lowerheader';
+import { DataContext } from "../DataProvider/DataProvider";
 function Header() {
+
+
+  const [state,dispatch] = useContext(DataContext)
+  console.log(state.length);
+
+
+
+
+
+
   return (
-    <>
+     <section className={classes.fixed} >
 
     <section>
         <div className={classes.header__container}>
@@ -79,14 +90,14 @@ function Header() {
 < Link to="/cart"  className={classes.cart} >
       {/* icon from react-icons */}
       <BsCart4 size={35}/>
-   <span>0</span>
+   <span>{state.length}</span>
 </Link>
        
         </div>
         </div>
     </section>
     <Lowerheader />
-</>
+</section>
   )
 }
 
