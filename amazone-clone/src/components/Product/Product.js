@@ -30,7 +30,8 @@ axios.get('https://fakestoreapi.com/products')
      {
 Products.map((singleproduct) => (
 
-  <ProductCard product ={singleproduct} key={singleproduct?.id} />
+      
+      <ProductCard renderAdd={true} product ={singleproduct} key={singleproduct?.id} />
 ))
      }
     </section>)}

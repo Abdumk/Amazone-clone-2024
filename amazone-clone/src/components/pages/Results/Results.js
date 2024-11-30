@@ -59,6 +59,7 @@ const [isLoading, setisLoading] = useState(false);
       key={product.id}
       renderAdd={true}
        product={product}
+      renderDesc={false}
        />
     ))}
 </div>

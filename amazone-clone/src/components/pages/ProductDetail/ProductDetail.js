@@ -39,6 +39,8 @@ const [isLoading, setisLoading] = useState(false);
   product={product}
   flex ={true}
   renderDesc={true}
+  renderAdd={true}
+
   />  )}
    
     </Lay0ut>
