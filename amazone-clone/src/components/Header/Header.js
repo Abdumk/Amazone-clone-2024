@@ -12,6 +12,13 @@ function Header() {
   const [state,dispatch] = useContext(DataContext)
   console.log(state.length);
 
+  const { basket } = state;
+  const totalItem = basket?.reduce((amount,item) => {
+
+    return item.amount+amount
+
+
+  } ,0)
 
 
 
@@ -90,7 +97,7 @@ function Header() {
 < Link to="/cart"  className={classes.cart} >
       {/* icon from react-icons */}
       <BsCart4 size={35}/>
-   <span>{state.length}</span>
+   <span>{totalItem}</span>
 </Link>
        
         </div>

@@ -26,40 +26,34 @@ if (!existingItem){
     ...state,
     basket :updatedBasket
 
-  
+   
+              
   
   }
 }
        
-    default:
-        return state;
-}
+case Type.REMOVE_FROM_BASKET:
+  const index = state.basket.findIndex((item) => item.id === action.id); // Correct condition
 
-}
+  // Clone the basket to modify
+  let newBasket = [...state.basket];
 
+  if (index >= 0) {
+    if (newBasket[index].amount > 1) {
+      // Decrease the amount if more than 1
+      newBasket[index] = { ...newBasket[index], amount: newBasket[index].amount - 1 };
+    } else {
+      // Remove the item from the basket
+      newBasket.splice(index, 1);
+    }
+  } else {
+    console.warn(`Item with id ${action.id} not found in basket`);
+  }
 
-// Reducer.js for practice
-// import { Type } from './Action.type';
+  return {
+    ...state,
+    basket: newBasket,
+  };
 
-// export const initialState = {
-//   basket: [],
-// };
+}}
 
-// export const reducer = (state, action) => {
-//   switch (action.type) {
-//     case Type.ADD_TO_BASKET:
-//       return {
-//         ...state,
-//         basket: [...state.basket, action.item],
-//       };
-
-//     case Type.REMOVE_FROM_BASKET:
-//       return {
-//         ...state,
-//         basket: state.basket.filter(item => item.id !== action.id),
-//       };
-
-//     default:
-//       return state;
-//   }
-// };
