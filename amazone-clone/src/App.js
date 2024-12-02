@@ -6,11 +6,7 @@ import{DataProvider} from './components/DataProvider/DataProvider'
 
 function App() {
   return (
-  //   <>
-
-  //  <Routinger />
   
-  //   </>
     <DataProvider reducer={ reducer} initialState={initialState} >
       <Routinger />
 

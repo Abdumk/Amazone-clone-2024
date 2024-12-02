@@ -1,4 +1,3 @@
-
 import { Type } from './Action.type';
 
 export const initialState = {
