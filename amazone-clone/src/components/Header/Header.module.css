@@ -143,9 +143,51 @@ color: orange;
  .lower__container ul li:hover{
   border: 1px solid white;
   border-radius: 3px;
+  
  }
 
+ 
  .lower__container{
+  background-color: #232f3e;
+  color: white;
+  
+   }
+  
+   .lower__container ul{
+      display: flex;
+      list-style: none;
+      gap: 5px;
+   }
+   .lower__container ul li{
+  padding: 8px;
+  /*display: flex;*/
+   }
+   .lower__container ul li:first-child{
+      display: flex;
+      gap: 2px;
+      align-items: center;
+   }
+    
+   @media (max-width: 576px) {
+      .header__container {
+          display: flex;
+         flex-direction: column !important;
+         height: auto;
+        
+      }
+  
+      .lower__container ul li:not(first-child) {
+      display: none;
+      }
+  
+      .language {
+          display: none;
+         
+      }
+  } 
+  
+
+ /* .lower__container{
 background-color: #232f3e;
 color: white;
 
@@ -156,30 +198,91 @@ color: white;
     list-style: none;
     gap: 5px;
  }
- .lower__container ul li{
-padding: 8px;
-/*display: flex;*/
- }
- .lower__container ul li:first-child{
+ 
+ .lower__container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; */
+  /* flex-direction: row; Align items in a row by default */
+  /* gap: 10px; Add spacing between items */
+/* } */
+ /* .lower__container ul li:first-child{
     display: flex;
     gap: 2px;
     align-items: center;
- }
+ } */
+/* 
+ .lower__container ul li {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
   
- @media (max-width: 576px) {
+  @media (max-width: 576px) {
     .header__container {
         display: flex;
        flex-direction: column !important;
        height: auto;
       
     }
-
-    .lower__container ul li:not(first-child) {
-    display: none;
+  
+    .lower__container ul {
+      list-style: none;
+      
+      display: contents;
+      flex-direction: column; 
     }
+    
 
     .language {
         display: none;
        
     }
-} 
+   
+    
+    .menuToggle {
+      cursor: pointer;
+      display: block;
+      align-items: center; 
+      padding: 10px;
+    }
+    
+    .menuItems {
+      display: block; 
+      flex-direction: column;
+    }
+    
+    .menuItems li {
+      padding: 5px 10px;
+    }
+    
+  
+     .menuItems.show {
+      display: flex;
+    } 
+    
+}  
+
+
+
+
+.lower__container ul {
+  list-style: none;
+  
+  display: grid;
+  flex-direction: row; 
+}
+
+
+
+.menuItems {
+  display: none; 
+  flex-direction: column;
+}
+
+
+.menuItems.show {
+  display: block;
+}
+ */

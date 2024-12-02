@@ -37,3 +37,38 @@ grid-template-columns: repeat(4,1fr);
 place-items: center;
 }
 
+/* Media query for small screens */
+@media (max-width: 768px) {
+    .category_container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 8px;
+     
+      display:grid ;
+      overflow-y: hidden;
+      overflow-x: auto;
+      padding: 10px;
+     
+    }
+  
+     .category {
+      width: auto; /* Fixed width: 45% of the viewport width */
+       height: auto; /*Adjusts height based on content*/
+    } 
+
+    
+  
+    .category img {
+      height: 30vh; /* Fixed height: 30% of the viewport height */
+      object-fit:contain; /* Ensures the image fits the area */
+     
+    }
+  
+    .category h2 {
+      font-size: 1rem; /* Scaled down for small screens */
+    }
+  
+    .category p {
+      font-size: 0.875rem; /* Scaled down text */
+    }
+  }
