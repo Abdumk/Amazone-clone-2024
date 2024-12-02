@@ -13,7 +13,7 @@ showIndicators={false}
 showThumbs={false}
 >
 {
-img.map((imageItemLink) => {
+img?.map((imageItemLink,i) => {
     return <img src={imageItemLink} />
 })
 

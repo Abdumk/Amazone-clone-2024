@@ -6,9 +6,9 @@ function CategoryCard({data}) {
     <div className={classes.category}>
         <Link to={`/category/${data.name}`}>  
             <span>
-            <h2>{data.title}</h2>
+            <h2>{data?.title}</h2>
             </span>
-            <img src={data.imgLink} alt={data.name} />
+            <img src={data?.imgLink} alt={data.name} />
            <p>shop now</p>
          
         </Link>
