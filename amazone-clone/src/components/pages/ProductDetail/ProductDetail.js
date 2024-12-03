@@ -1,5 +1,5 @@
 import React, {useEffect, useState } from 'react';
-import clases from './ProductDetail.module.css'
+import classes from './ProductDetail.module.css';
 import Lay0ut from '../../LayOut/Lay0ut'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -33,17 +33,24 @@ const [isLoading, setisLoading] = useState(false);
   return (
 
     
-    <Lay0ut>
-    
-    {isLoading? (<Loder />):( <ProductCard  
-  product={product}
-  flex ={true}
-  renderDesc={true}
-  renderAdd={true}
-
-  />  )}
-   
-    </Lay0ut>
+  <Lay0ut>
+  <div className={classes.product_detail_container}>
+    {isLoading ? (
+      <div className={classes.loader_container}>
+        <Loder />
+      </div>
+    ) : (
+      <div className={classes.product_detail_card}>
+        <ProductCard
+          product={product}
+          flex={true}
+          renderDesc={true}
+          renderAdd={true}
+        />
+      </div>
+    )}
+  </div>
+</Lay0ut>
   )
 }
 

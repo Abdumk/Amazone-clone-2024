@@ -107,4 +107,13 @@ height: auto;
      flex-direction: column;
         
       }
+      .button{
+        display: block;
+        background-color: #d49644;
+        margin-left: 70px;
+        margin-bottom: -5px;
+      }
+    
   }
+
+ 
