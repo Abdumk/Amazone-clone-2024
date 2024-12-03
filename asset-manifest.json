@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Amazone-clone-2024/static/css/main.93d4a1c1.css",
-    "main.js": "/Amazone-clone-2024/static/js/main.f9511af4.js",
+    "main.css": "/Amazone-clone-2024/static/css/main.090c1e85.css",
+    "main.js": "/Amazone-clone-2024/static/js/main.9334a9a8.js",
     "static/media/gift.jpg": "/Amazone-clone-2024/static/media/gift.c914c0c9e43c17916041.jpg",
     "static/media/up.jpg": "/Amazone-clone-2024/static/media/up.7a81bd546704d74ac607.jpg",
     "static/media/book.jpg": "/Amazone-clone-2024/static/media/book.805821d23a3f63566f17.jpg",
     "static/media/kitchen.jpg": "/Amazone-clone-2024/static/media/kitchen.af535717a7579eabdac4.jpg",
     "static/media/black.jpg": "/Amazone-clone-2024/static/media/black.825280c80d86ad475995.jpg",
     "index.html": "/Amazone-clone-2024/index.html",
-    "main.93d4a1c1.css.map": "/Amazone-clone-2024/static/css/main.93d4a1c1.css.map",
-    "main.f9511af4.js.map": "/Amazone-clone-2024/static/js/main.f9511af4.js.map"
+    "main.090c1e85.css.map": "/Amazone-clone-2024/static/css/main.090c1e85.css.map",
+    "main.9334a9a8.js.map": "/Amazone-clone-2024/static/js/main.9334a9a8.js.map"
   },
   "entrypoints": [
-    "static/css/main.93d4a1c1.css",
-    "static/js/main.f9511af4.js"
+    "static/css/main.090c1e85.css",
+    "static/js/main.9334a9a8.js"
   ]
 }
