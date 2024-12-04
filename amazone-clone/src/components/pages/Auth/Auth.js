@@ -4,7 +4,7 @@ import Lay0ut from '../../LayOut/Lay0ut'
 import clases from './SignIn.module.css'
 
 
-function SignIn() {
+function Auth() {
   return (
 
     <Lay0ut>
@@ -15,4 +15,4 @@ function SignIn() {
   )
 }
 
-export default SignIn
+export default Auth
