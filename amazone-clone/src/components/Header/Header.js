@@ -6,11 +6,16 @@ import { Link } from 'react-router-dom';
 import classes from './Header.module.css';
 import Lowerheader from './Lowerheader';
 import { DataContext } from "../DataProvider/DataProvider";
+import {auth} from '../../Utility/firebase';
+import { Type } from '../../Utility/Action.type';
+
 function Header() {
 
 
   const [state,dispatch] = useContext(DataContext)
   console.log(state.length);
+  console.log(state.user);
+
 
   const { basket } = state;
   const totalItem = basket?.reduce((amount,item) => {
@@ -20,6 +25,18 @@ function Header() {
 
   } ,0)
 
+   // handle-sign-out
+   const handleSignOut = () => {
+    auth
+      .signOut()
+      .then(() => {
+        dispatch({ type: Type.SIGN_OUT }); // Dispatch the action
+        console.log("User signed out successfully");
+      })
+      .catch((error) => {
+        console.error("Error signing out:", error);
+      });
+  };
   return (
      <section className={classes.fixed} >
 
@@ -74,12 +91,47 @@ function Header() {
 
         
     {/* three components */}
-<Link to="/auth">
+{/* <Link to="/auth">
 
     <p>Sign In</p>
     <span>Account & Lists</span>
 
-</Link>
+</Link> */}
+   {/* <Link to={/user && "/auth"} >
+            <div>
+                {user ? (
+                  <>
+                    <p>Hello {user?.email?.split("@")[0]}</p>
+                    <span onClick={() => (user ? auth.signOut() : null)}>
+                      Sign Out
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <p>Hello, Sign In</p>
+                    <span>Account & Lists</span>
+                  </>
+                )}
+              </div>
+            </Link> */}
+
+
+
+<div>
+  {state.user != null ? (
+    <>
+      <p>Hello, {state.user.email?.split("@")[0]}</p>
+      <span onClick={handleSignOut} style={{ cursor: "pointer", color: "blue" }}>
+        Sign Out
+      </span>
+    </>
+  ) : (
+    <Link to="/auth">
+      <p>Hello, Sign In</p>
+      <span>Account & Lists</span>
+    </Link>
+  )}
+</div>
 
 
       {/* orders */}

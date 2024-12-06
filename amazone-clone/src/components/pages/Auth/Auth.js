@@ -19,6 +19,8 @@ function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  // N:B it show email and password found in our state
+  console.log(password, email); 
   const [loading, setLoading] = useState({
     signIn: false,
     signUP: false,
@@ -30,14 +32,20 @@ function Auth() {
   
   const authHandler = async (e) => {
     e.preventDefault();
+     // tell us with same function but depened on user click it works when click signin log signin,when click signup log signup
+    console.log(e.target.name);
+    
     if (e.target.name == "signin") {
       // firebase auth
       setLoading({ ...loading, signIn: true });
       signInWithEmailAndPassword(auth, email, password)
         .then((userInfo) => {
+          // show user info in console log so it approve data is found and register in firebase
+          // console.log(userInfo);
+          
           dispatch({
             type: Type.SET_USER,
-            user: userInfo.user,
+            user: userInfo.user
           });
           setLoading({ ...loading, signIn: false });
           navigate(navStateData?.state?.redirect || "/");
@@ -115,6 +123,7 @@ function Auth() {
 
     {/* create account btn */}
     <button 
+    type='submit'
       name="signup"
        onClick={authHandler} 
       className={classes.login__registerButton}

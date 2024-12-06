@@ -1,7 +1,8 @@
 import { Type } from './Action.type';
 
 export const initialState = {
-    basket:[]
+    basket:[],
+    user:null
 }
 export const reducer = (state,action)=>{
 switch (action.type) {
@@ -59,6 +60,11 @@ case Type.REMOVE_FROM_BASKET:
         ...state,
         user:action.user
     }
+    case Type.SIGN_OUT: // New action to handle sign-out
+    return {
+      ...state,
+      user: null,
+    };
 case Type.EMPTY_BASKET : 
     return{
         ...state,
