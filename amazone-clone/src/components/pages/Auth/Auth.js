@@ -35,7 +35,7 @@ function Auth() {
      // tell us with same function but depened on user click it works when click signin log signin,when click signup log signup
     console.log(e.target.name);
     
-    if (e.target.name == "signin") {
+    if (e.target.name === "signin") {
       // firebase auth
       setLoading({ ...loading, signIn: true });
       signInWithEmailAndPassword(auth, email, password)
@@ -105,7 +105,7 @@ function Auth() {
     <input value={email} onChange={(e)=>setEmail(e.target.value)} type="email" id='email' />
       </div>
       <div>
-      <label htmlFor="password">Email</label>
+      <label htmlFor="password">password</label>
     <input   value={password} onChange={(e) => setPassword(e.target.value)} type="password" id='password' />
       </div>
       <button    name="signin"  onClick={authHandler}  className={classes.login__signInButton}>
@@ -118,7 +118,7 @@ function Auth() {
     <p>
       By signing-in you agree to the AMAZON FAKE CLONE Conditions of Use &
       Sale. Please see our Privacy Notice, our Cookies Notice and our
-      Interest-Based Ads Notice.
+      Interest-Based Ads Notice abd SPARTAW.
     </p>
 
     {/* create account btn */}

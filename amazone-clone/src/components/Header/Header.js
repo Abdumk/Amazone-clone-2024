@@ -11,13 +11,7 @@ import { Type } from '../../Utility/Action.type';
 
 function Header() {
 
-
-  const [state,dispatch] = useContext(DataContext)
-  console.log(state.length);
-  console.log(state.user);
-
-
-  const { basket } = state;
+  const [ {user,basket},dispatch ] = useContext(DataContext); 
   const totalItem = basket?.reduce((amount,item) => {
 
     return item.amount+amount
@@ -25,18 +19,6 @@ function Header() {
 
   } ,0)
 
-   // handle-sign-out
-   const handleSignOut = () => {
-    auth
-      .signOut()
-      .then(() => {
-        dispatch({ type: Type.SIGN_OUT }); // Dispatch the action
-        console.log("User signed out successfully");
-      })
-      .catch((error) => {
-        console.error("Error signing out:", error);
-      });
-  };
   return (
      <section className={classes.fixed} >
 
@@ -72,7 +54,7 @@ function Header() {
      </select>
       <input type="text" name="" id="" placeholder="search product" />
         {/* icon from react-icons*/}
-        <FaSearch size={25} />
+        <FaSearch size={38} />
         </div>
     
 
@@ -97,7 +79,8 @@ function Header() {
     <span>Account & Lists</span>
 
 </Link> */}
-   {/* <Link to={/user && "/auth"} >
+
+   <Link to={!user && "/auth"} >
             <div>
                 {user ? (
                   <>
@@ -113,26 +96,7 @@ function Header() {
                   </>
                 )}
               </div>
-            </Link> */}
-
-
-
-<div>
-  {state.user != null ? (
-    <>
-      <p>Hello, {state.user.email?.split("@")[0]}</p>
-      <span onClick={handleSignOut} style={{ cursor: "pointer", color: "blue" }}>
-        Sign Out
-      </span>
-    </>
-  ) : (
-    <Link to="/auth">
-      <p>Hello, Sign In</p>
-      <span>Account & Lists</span>
     </Link>
-  )}
-</div>
-
 
       {/* orders */}
 <Link to="/orders">
